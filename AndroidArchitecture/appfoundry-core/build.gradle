@@ -1,0 +1,7 @@
+apply plugin: 'java'
+
+dependencies {
+    testCompile libraries.junit
+    testCompile libraries.fest_android
+    testCompile libraries.mockito
+}
