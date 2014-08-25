@@ -10,7 +10,11 @@ android {
         targetSdkVersion 20
         versionCode 1
         versionName "1.0"
+
+        // Espresso test runner
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
+
     buildTypes {
         release {
             runProguard false
@@ -22,5 +26,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile project(':appfoundry-core')
+    def coreModule = project(':appfoundry-core')
+    compile coreModule
+
+    androidTestCompile libraries.espresso
 }
