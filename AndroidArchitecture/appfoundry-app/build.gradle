@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+// Manifest version information!
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 0 // bump for dogfood builds, public betas, etc.
+
+def buildTime = new Date().format("dd-MM-yyyy'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
+
 android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
@@ -8,18 +16,51 @@ android {
         applicationId "be.appfoundry.android.androidarchitecture"
         minSdkVersion 16
         targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
+        versionCode buildVersionCode(versionMajor, versionMinor, versionPatch, versionBuild)
+        versionName buildVersionName(versionMajor, versionMinor, versionPatch)
+
+        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
 
         // Espresso test runner
         testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
 
+    signingConfigs {
+        debug {
+            storeFile file(appfoundry_android_debugkey_storefile)
+            storePassword appfoundry_android_debugkey_storePassword
+            keyAlias appfoundry_android_debugkey_keyAlias
+            keyPassword appfoundry_android_debugkey_keyPassword
+        }
+        release {
+            storeFile file(appfoundry_android_releasekey_storefile)
+            storePassword appfoundry_android_releasekey_storePassword
+            keyAlias appfoundry_android_releasekey_keyAlias
+            keyPassword appfoundry_android_releasekey_keyPassword
+        }
+    }
+
     buildTypes {
         release {
-            runProguard false
+            runProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
+
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix " - DEBUG"
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    lintOptions {
+        abortOnError true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
@@ -30,4 +71,12 @@ dependencies {
     compile coreModule
 
     androidTestCompile libraries.espresso
+}
+
+def buildVersionName(versionMajor, versionMinor, versionPatch) {
+    return "${versionMajor}.${versionMinor}.${versionPatch}"
+}
+
+def buildVersionCode(versionMajor, versionMinor, versionPatch, versionBuild) {
+    return versionMajor * 1000 + versionMinor * 100 + versionPatch * 10 + versionBuild
 }

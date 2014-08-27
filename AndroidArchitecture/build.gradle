@@ -17,6 +17,7 @@ ext {
     // TESTING
     junit_version = "4.11"
     fest_android_version = "1.0.7"
+    assertj_android_version = "1.0.0-SNAPSHOT"
     mockito_version = "1.8.5"
     robolectric_version = "2.3"
     espresso_version = "1.1.0-SNAPSHOT"
@@ -27,7 +28,7 @@ ext {
 ext.libraries = [
         android_support : "com.android.support:support-v4:$android_support_version",
         retrofit        : "com.squareup.retrofit:retrofit:$retrofit_version",
-        retrofit_jackson : "com.squareup.retrofit:converter-jackson:$retrofit_version",
+        retrofit_jackson: "com.squareup.retrofit:converter-jackson:$retrofit_version",
         picasso         : "com.squareup.picasso:picasso:$picasso_version",
         gson            : "com.google.code.gson:gson:$gson_version",
         dagger          : "com.squareup.dagger:dagger:$dagger_version",
@@ -40,13 +41,38 @@ ext.libraries = [
         timber          : "com.jakewharton.timber:timber:$timber_version",
 
         // TESTING
+        espresso        : "com.google.android:android-espresso-bundled:$espresso_version",
         junit           : "junit:junit:$junit_version",
-        fest_android    : "com.squareup:fest-android:$fest_android_version",
         mockito         : "org.mockito:mockito-all:$mockito_version",
         robolectric     : dependencies.create("org.robolectric:robolectric:$robolectric_version") {
             exclude module: "support-v4"
+            exclude module: 'classworlds'
+            exclude module: 'commons-logging'
+            exclude module: 'httpclient'
+            exclude module: 'maven-artifact'
+            exclude module: 'maven-artifact-manager'
+            exclude module: 'maven-error-diagnostics'
+            exclude module: 'maven-model'
+            exclude module: 'maven-project'
+            exclude module: 'maven-settings'
+            exclude module: 'plexus-container-default'
+            exclude module: 'plexus-interpolation'
+            exclude module: 'plexus-utils'
+            exclude module: 'wagon-file'
+            exclude module: 'wagon-http-lightweight'
+            exclude module: 'wagon-provider-api'
         },
-        espresso        : "com.google.android:android-espresso-bundled:$espresso_version"
+        fest_android    : "com.squareup:fest-android:$fest_android_version",
+        assertj_android : [ // group the core AssertJ dependency with the add-on modules
+                  "com.squareup.assertj:assertj-android:$assertj_android_version", // core android module
+                  "com.squareup.assertj:assertj-android-support-v4:$assertj_android_version", // support-v4 module
+                  "com.squareup.assertj:assertj-android-play-services:$assertj_android_version", // google play services module
+                  "com.squareup.assertj:assertj-android-appcompat-v7:$assertj_android_version", // appcompat-v7 module
+                  "com.squareup.assertj:assertj-android-mediarouter-v7:$assertj_android_version", // mediarouter-v7 module
+                  "com.squareup.assertj:assertj-android-gridlayout-v7:$assertj_android_version", // gridlayout-v7 module
+                  "com.squareup.assertj:assertj-android-cardview-v7:$assertj_android_version", // cardview-v7 module
+                  "com.squareup.assertj:assertj-android-recyclerview-v7:$assertj_android_version" // recyclerview-v7 module
+                ]
 
         // INFRASTRUCTURE
 ]
