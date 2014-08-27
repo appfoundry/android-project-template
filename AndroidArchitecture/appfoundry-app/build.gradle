@@ -70,6 +70,8 @@ dependencies {
     def coreModule = project(':appfoundry-core')
     compile coreModule
 
+    compile libraries.timber
+
     androidTestCompile libraries.espresso
 }
 
