@@ -1,4 +1,4 @@
-package be.appfoundry.android.test;
+package be.appfoundry.android.ui;
 
 import android.annotation.TargetApi;
 import android.os.Build;
@@ -9,10 +9,12 @@ import org.robolectric.annotation.Config;
 import org.robolectric.util.ActivityController;
 
 import be.appfoundry.android.RobolectricGradleTestRunner;
-import be.appfoundry.android.androidarchitecture.MyActivity;
+import be.appfoundry.android.androidarchitecture.ui.MyActivity;
 import be.appfoundry.android.androidarchitecture.R;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+//import static org.assertj.android.api.Assertions.assertThat;
+
 
 /**
  * @author Filip Maelbrancke

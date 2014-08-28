@@ -17,7 +17,7 @@ ext {
     // TESTING
     junit_version = "4.11"
     fest_android_version = "1.0.7"
-    assertj_android_version = "1.0.0-SNAPSHOT"
+    assertj_android_version = "1.0.0"
     mockito_version = "1.8.5"
     robolectric_version = "2.3"
     espresso_version = "1.1.0-SNAPSHOT"
@@ -70,8 +70,8 @@ ext.libraries = [
                   "com.squareup.assertj:assertj-android-appcompat-v7:$assertj_android_version", // appcompat-v7 module
                   "com.squareup.assertj:assertj-android-mediarouter-v7:$assertj_android_version", // mediarouter-v7 module
                   "com.squareup.assertj:assertj-android-gridlayout-v7:$assertj_android_version", // gridlayout-v7 module
-                  "com.squareup.assertj:assertj-android-cardview-v7:$assertj_android_version", // cardview-v7 module
-                  "com.squareup.assertj:assertj-android-recyclerview-v7:$assertj_android_version" // recyclerview-v7 module
+                  //"com.squareup.assertj:assertj-android-cardview-v7:$assertj_android_version", // cardview-v7 module
+                  //"com.squareup.assertj:assertj-android-recyclerview-v7:$assertj_android_version" // recyclerview-v7 module
                 ]
 
         // INFRASTRUCTURE

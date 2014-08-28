@@ -73,6 +73,7 @@ dependencies {
     compile libraries.timber
 
     androidTestCompile libraries.espresso
+    androidTestCompile libraries.assertj_android
 }
 
 def buildVersionName(versionMajor, versionMinor, versionPatch) {
