@@ -17,5 +17,4 @@
 #}
 
 
-# skip org.assertj warnings
--keepattributes EnclosingMethod
+-dontwarn org.assertj.core.**

@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply from: rootProject.file('gradle/check.gradle')
+
 // Manifest version information!
 def versionMajor = 1
 def versionMinor = 0
@@ -73,7 +75,8 @@ dependencies {
     compile libraries.timber
 
     androidTestCompile libraries.espresso
-    androidTestCompile libraries.assertj_android
+    // sub-optimal way of including assertj-android
+    compile libraries.assertj_android
 }
 
 def buildVersionName(versionMajor, versionMinor, versionPatch) {
