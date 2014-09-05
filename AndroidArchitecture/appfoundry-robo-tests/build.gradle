@@ -1,13 +1,15 @@
 apply plugin: 'java'
 
+apply plugin: 'jacoco'
+
 dependencies {
     def androidModule = project(':appfoundry-app')
     compile androidModule
 
     testCompile libraries.junit
-    testCompile libraries.fest_android
-    testCompile libraries.mockito
+    //testCompile libraries.mockito
     testCompile libraries.robolectric
+    testCompile libraries.fest_android
     //testCompile libraries.assertj_android
 
     testCompile androidModule.android.applicationVariants.toList().first().javaCompile.classpath
@@ -29,3 +31,40 @@ tasks.withType(Test) {
     include "**/*Test.class"
     include "**/*Tests.class"
 }
+
+//apply from: rootProject.file('gradle/jacoco.gradle')
+
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+}
+
+// Coverage source definitions.
+// rs/aidl etc... need to be added here.
+def coverageSourceDirs = [
+        '../appfoundry-app/src/main/java',
+        '../appfoundry-app/build/generated/source/buildConfig/debug',
+        '../appfoundry-app/build/generated/source/r/debug'
+]
+// TODO : add apt source files
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    // The usage of the R, BuildConfig, etc classes does not need to be covered... thus ignored from the report
+    classDirectories = fileTree(
+            dir: '../appfoundry-app/build/intermediates/classes/debug',
+            exclude: [
+                    '**/R*.class',
+                    '**/BuildConfig*',
+                    '**/*$*.class',
+                    '**/*$*.java']
+    )
+
+    additionalSourceDirs = files(coverageSourceDirs)
+
+    executionData = files('build/jacoco/test.exec')
+}
+

@@ -14,6 +14,11 @@ android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
+    jacoco {
+        //version = '0.6.2.201302030002'
+        version = '0.7.1.201405082137'
+    }
+
     defaultConfig {
         applicationId "be.appfoundry.android.androidarchitecture"
         minSdkVersion 16
@@ -47,12 +52,14 @@ android {
             runProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            testCoverageEnabled = true
         }
 
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix " - DEBUG"
             signingConfig signingConfigs.debug
+            testCoverageEnabled = true
         }
     }
 
