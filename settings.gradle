@@ -1,0 +1,1 @@
+include ':appfoundry-app', ':appfoundry-core', ':appfoundry-robo-tests'

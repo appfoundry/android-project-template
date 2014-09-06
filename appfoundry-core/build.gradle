@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+apply plugin: 'jacoco'
+
+//apply from: rootProject.file('gradle/check.gradle')
+
+dependencies {
+    testCompile libraries.junit
+    testCompile libraries.mockito
+}
+
+apply from: rootProject.file('gradle/jacoco.gradle')
