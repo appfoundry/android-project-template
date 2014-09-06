@@ -1,0 +1,36 @@
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+}
+
+def coverageSourceDirs = [
+        '../appfoundry-app/src/main/java',
+        '../appfoundry-app/build/generated/source/buildConfig/debug',
+        '../appfoundry-app/build/generated/source/r/debug'
+]
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    // The usage of the R, BuildConfig, etc classes does not need to be covered... thus ignored from the report
+    classDirectories = fileTree(
+            dir: '../appfoundry-app/build/intermediates/classes/debug',
+            exclude: [
+                    '**/R*.class',
+                    '**/BuildConfig*',
+                    '**/*$*.class',
+                    '**/*$*.java']
+    )
+
+    additionalSourceDirs = files(coverageSourceDirs)
+
+    executionData = files('build/jacoco/test.exec')
+    //additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+}
+
+// clean up dashboard
+//test.reports.html.enabled = false
+//test.reports.junitXml.enabled = false
+//test.reports.junitXml.enabled = false

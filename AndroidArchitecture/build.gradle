@@ -17,7 +17,7 @@ ext {
     // TESTING
     junit_version = "4.11"
     fest_android_version = "1.0.7"
-    assertj_android_version = "1.0.0-SNAPSHOT"
+    assertj_android_version = "1.0.0"
     mockito_version = "1.8.5"
     robolectric_version = "2.3"
     espresso_version = "1.1.0-SNAPSHOT"
@@ -43,6 +43,9 @@ ext.libraries = [
         // TESTING
         espresso        : "com.google.android:android-espresso-bundled:$espresso_version",
         junit           : "junit:junit:$junit_version",
+        /*junit           : dependencies.create("junit:junit:$junit_version") {
+            exclude module: 'hamcrest-core'
+        },*/
         mockito         : "org.mockito:mockito-all:$mockito_version",
         robolectric     : dependencies.create("org.robolectric:robolectric:$robolectric_version") {
             exclude module: "support-v4"
@@ -67,11 +70,11 @@ ext.libraries = [
                   "com.squareup.assertj:assertj-android:$assertj_android_version", // core android module
                   "com.squareup.assertj:assertj-android-support-v4:$assertj_android_version", // support-v4 module
                   "com.squareup.assertj:assertj-android-play-services:$assertj_android_version", // google play services module
-                  "com.squareup.assertj:assertj-android-appcompat-v7:$assertj_android_version", // appcompat-v7 module
-                  "com.squareup.assertj:assertj-android-mediarouter-v7:$assertj_android_version", // mediarouter-v7 module
+                  //"com.squareup.assertj:assertj-android-appcompat-v7:$assertj_android_version", // appcompat-v7 module
+                  //"com.squareup.assertj:assertj-android-mediarouter-v7:$assertj_android_version", // mediarouter-v7 module
                   "com.squareup.assertj:assertj-android-gridlayout-v7:$assertj_android_version", // gridlayout-v7 module
-                  "com.squareup.assertj:assertj-android-cardview-v7:$assertj_android_version", // cardview-v7 module
-                  "com.squareup.assertj:assertj-android-recyclerview-v7:$assertj_android_version" // recyclerview-v7 module
+                  //"com.squareup.assertj:assertj-android-cardview-v7:$assertj_android_version", // cardview-v7 module
+                  //"com.squareup.assertj:assertj-android-recyclerview-v7:$assertj_android_version" // recyclerview-v7 module
                 ]
 
         // INFRASTRUCTURE
@@ -114,3 +117,6 @@ allprojects {
 
     }
 }
+
+
+apply plugin: 'build-dashboard'

@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply from: rootProject.file('gradle/check.gradle')
+
 // Manifest version information!
 def versionMajor = 1
 def versionMinor = 0
@@ -11,6 +13,11 @@ def buildTime = new Date().format("dd-MM-yyyy'T'HH:mm'Z'", TimeZone.getTimeZone(
 android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
+
+    jacoco {
+        //version = '0.6.2.201302030002'
+        version = '0.7.1.201405082137'
+    }
 
     defaultConfig {
         applicationId "be.appfoundry.android.androidarchitecture"
@@ -45,12 +52,14 @@ android {
             runProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            testCoverageEnabled = true
         }
 
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix " - DEBUG"
             signingConfig signingConfigs.debug
+            testCoverageEnabled = true
         }
     }
 
@@ -70,7 +79,11 @@ dependencies {
     def coreModule = project(':appfoundry-core')
     compile coreModule
 
+    compile libraries.timber
+
     androidTestCompile libraries.espresso
+    // sub-optimal way of including assertj-android
+    compile libraries.assertj_android
 }
 
 def buildVersionName(versionMajor, versionMinor, versionPatch) {
