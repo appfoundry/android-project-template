@@ -9,13 +9,10 @@ Home for AppFoundry Android project template
     - (default) libraries
     - testing setup
 
-## Android Architecture
+## Android setup
 
-The `AndroidTemplate` folder contains a sample Android project setup.
 
-## Building
-
-The Android consists of a multi-module Gradle-based project, which can be found under the AndroidTemplate folder
+This Android sample setup consists of a multi-module Gradle-based project
 
 The project has three different modules  
 * /appfoundry-app - The Android application with instrumentation tests using Espresso
