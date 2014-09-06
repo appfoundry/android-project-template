@@ -90,7 +90,7 @@ buildscript {
             url "https://oss.sonatype.org/content/repositories/snapshots"
         }
         maven {
-            url "http://ci.novoda.com/maven/releases/"
+            url "https://github.com/novoda/public-mvn-repo/raw/master/releases"
         }
 
     }
@@ -112,7 +112,7 @@ allprojects {
             url "https://oss.sonatype.org/content/repositories/snapshots"
         }
         maven {
-            url "http://ci.novoda.com/maven/releases/"
+            url "https://github.com/novoda/public-mvn-repo/raw/master/releases"
         }
 
     }
