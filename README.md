@@ -1,5 +1,7 @@
 # AppFoundry Android Project Template
 
+[![AppFoundry Android Template build status](https://travis-ci.org/appfoundry/android-project-template.svg?branch=feature%2Ftravis-build)](https://travis-ci.org/appfoundry/android-project-template)
+
 ## Goal
 
 Home for AppFoundry Android project template
