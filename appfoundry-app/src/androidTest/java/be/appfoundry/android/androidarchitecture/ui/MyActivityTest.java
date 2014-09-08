@@ -28,7 +28,6 @@ public class MyActivityTest extends ActivityInstrumentationTestCase2<MyActivity>
     public void test_preconditions() {
         assertThat(getActivity()).isNotNull();
         assertThat(getActivity()).isNotFinishing();
-        //assertThat(getActivity()).hasWindowFocus();
         assertThat(getActivity()).hasTitle(R.string.app_name);
     }
 

@@ -63,6 +63,17 @@ android {
         }
     }
 
+  productFlavors {
+
+      dev {
+        applicationId "be.appfoundry.android.androidarchitecture.dev"
+      }
+
+      prod {
+        applicationId "be.appfoundry.android.androidarchitecture"
+      }
+    }
+
     lintOptions {
         abortOnError true
     }
