@@ -90,11 +90,11 @@ dependencies {
     def coreModule = project(':appfoundry-core')
     compile coreModule
 
-    compile libraries.timber
+    compile rootProject.ext.libraries.timber
 
-    androidTestCompile libraries.espresso
+    androidTestCompile rootProject.ext.libraries.espresso
     // sub-optimal way of including assertj-android
-    compile libraries.assertj_android
+    compile rootProject.ext.libraries.assertj_android
 }
 
 def buildVersionName(versionMajor, versionMinor, versionPatch) {

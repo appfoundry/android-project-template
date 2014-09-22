@@ -6,10 +6,10 @@ dependencies {
     def androidModule = project(':appfoundry-app')
     compile androidModule
 
-    testCompile libraries.junit
+    testCompile rootProject.ext.libraries.junit
     //testCompile libraries.mockito
-    testCompile libraries.robolectric
-    testCompile libraries.fest_android
+    testCompile rootProject.ext.libraries.robolectric
+    testCompile rootProject.ext.libraries.fest_android
     //testCompile libraries.assertj_android
 
     testCompile androidModule.android.applicationVariants.toList().first().javaCompile.classpath
