@@ -63,15 +63,15 @@ android {
         }
     }
 
-  productFlavors {
+    productFlavors {
 
-      dev {
-        applicationId "be.appfoundry.android.androidarchitecture.dev"
-      }
+        dev {
+            applicationId "be.appfoundry.android.androidarchitecture.dev"
+        }
 
-      prod {
-        applicationId "be.appfoundry.android.androidarchitecture"
-      }
+        prod {
+            applicationId "be.appfoundry.android.androidarchitecture"
+        }
     }
 
     lintOptions {
@@ -90,6 +90,7 @@ dependencies {
     def coreModule = project(':appfoundry-core')
     compile coreModule
 
+    compile rootProject.ext.libraries.android_support_annotations
     compile rootProject.ext.libraries.timber
 
     androidTestCompile rootProject.ext.libraries.espresso

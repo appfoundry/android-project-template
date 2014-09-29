@@ -27,6 +27,7 @@ ext {
 
 ext.libraries = [
         android_support : "com.android.support:support-v4:$android_support_version",
+        android_support_annotations : "com.android.support:support-annotations:$android_support_version",
         retrofit        : "com.squareup.retrofit:retrofit:$retrofit_version",
         retrofit_jackson: "com.squareup.retrofit:converter-jackson:$retrofit_version",
         picasso         : "com.squareup.picasso:picasso:$picasso_version",

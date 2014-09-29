@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ./gradlew :build :appfoundry-app:connectedAndroidTest
-#          :appfoundry-core:testDebug \
-#          :appfoundry-robo-tests:testDebug \
+          :appfoundry-core:test
+          :appfoundry-robo-tests:test
 #          :appfoundry-robo-tests:jacocoTestReport \
-#          :appfoudnry-robo-tests:coveralls \
+#          :appfoundry-robo-tests:coveralls \
