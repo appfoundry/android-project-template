@@ -70,7 +70,7 @@ ext.libraries = [
         assertj_android : [ // group the core AssertJ dependency with the add-on modules
                   "com.squareup.assertj:assertj-android:$assertj_android_version", // core android module
                   "com.squareup.assertj:assertj-android-support-v4:$assertj_android_version", // support-v4 module
-                  "com.squareup.assertj:assertj-android-play-services:$assertj_android_version", // google play services module
+                  //"com.squareup.assertj:assertj-android-play-services:$assertj_android_version", // google play services module
                   //"com.squareup.assertj:assertj-android-appcompat-v7:$assertj_android_version", // appcompat-v7 module
                   //"com.squareup.assertj:assertj-android-mediarouter-v7:$assertj_android_version", // mediarouter-v7 module
                   "com.squareup.assertj:assertj-android-gridlayout-v7:$assertj_android_version", // gridlayout-v7 module

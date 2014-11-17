@@ -11,8 +11,8 @@ def versionBuild = 0 // bump for dogfood builds, public betas, etc.
 def buildTime = new Date().format("dd-MM-yyyy'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
 
     jacoco {
         //version = '0.6.2.201302030002'
@@ -22,7 +22,7 @@ android {
     defaultConfig {
         applicationId "be.appfoundry.android.androidarchitecture"
         minSdkVersion 16
-        targetSdkVersion 20
+        targetSdkVersion 21
         versionCode buildVersionCode(versionMajor, versionMinor, versionPatch, versionBuild)
         versionName buildVersionName(versionMajor, versionMinor, versionPatch)
 
@@ -52,7 +52,7 @@ android {
             runProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-            testCoverageEnabled = true
+            testCoverageEnabled = false
         }
 
         debug {
